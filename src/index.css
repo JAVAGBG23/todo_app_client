@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #101010;
+  color: white;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.todo-item {
+  border: 0.5px solid #dccbb0;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 1.5rem;
+  width: 30rem;
+}
+
+.title {
+  font-weight: 700;
+  color: #dccbb0;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+  user-select: none;
+}
+
+.trash {
+  width: 26px;
+  height: 32px;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #1e1e1e;
+  border-radius: 50%;
+  border: 1px solid #ff5631;
+}
+
+.checkmark.checked::before {
+  display: none;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ff5631;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #57cb4b;
+  border: 1px solid #57cb4b;
+}
+
+.checked:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 9px;
+  height: 5px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  left: 8px;
+  top: 5px;
+}
+
+.task-text {
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.task-text.completed {
+  text-decoration: line-through;
+  color: #bbb;
+}
+
+.todo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid #dccbb0;
+  border-radius: 30px;
+  padding: 3rem 3rem 3rem 1rem;
+  width: 30rem;
+  margin-bottom: 3rem;
+  color: #dccbb0;
+}
+
+.todo-header h1 {
+  margin-bottom: 0.2rem;
+}
+
+.todo-header p {
+  letter-spacing: 6px;
+  font-weight: 300;
+}
+
+.circle {
+  background-color: #ff5631;
+  padding: 4rem;
+  border-radius: 100%;
+  position: relative;
+  left: 2rem;
+}
+
+.circle-text {
+  color: black;
+  font-size: 40px;
+  letter-spacing: 3px;
+  font-weight: 800;
+}
+
+.input-group {
+  width: 30rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-group input {
+  border: none;
+  background-color: #1e1e1e;
+  border-radius: 20px;
+  padding: 20px;
+  width: 85%;
+  color: #dccbb0;
+  font-size: 18px;
+}
+
+.input-group input::placeholder {
+  font-size: 18px;
+  color: #726e66;
+}
+
+.input-group button {
+  border-radius: 100%;
+  background-color: #ff5631;
+  height: 50px;
+  width: 50px;
+  color: black;
+  font-weight: 800;
+  font-size: 30px;
+  border: none;
+  position: relative;
+  top: 10px;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.input-group input:focus {
+  outline: none;
+}
+
+.header {
+  width: 100vw;
+  height: 80px;
+
+  padding-top: 20px;
+  padding-left: 50px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.header ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.link {
+  color: #dccbb0;
+  cursor: pointer;
+  text-decoration: none;
+}
