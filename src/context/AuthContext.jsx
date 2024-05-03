@@ -23,6 +23,19 @@ const AuthContext = createContext();
 // create provider
 const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(rootReducer, initialState);
+
+  useEffect(() => {
+    dispatch({
+      type: "LOGIN",
+      payload: JSON.stringify(window.localStorage.getItem("user")),
+    });
+  }, []);
+
+  return (
+    <AuthContext.Provider value={{ state, dispatch }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export { AuthContext, AuthProvider };
