@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { todoItems } from "../data/todoItems";
 import { v4 as uuidv4 } from "uuid";
+import { TodoContext } from "../context/TodoContext";
 import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
 import Header from "./Header";
 
 const Home = () => {
-  const [todos, setTodos] = useState(todoItems);
+  const { todo } = useContext(TodoContext);
+  /*  const [todos, setTodos] = useState(todoItems);
 
   const handleAddTodo = (newTodo) => {
     newTodo.id = uuidv4();
@@ -26,8 +28,8 @@ const Home = () => {
     });
     setTodos(updatedTodos);
   };
-
-  const completedCount = todos.filter((todo) => todo.done).length;
+ */
+  const completedCount = todo.filter((todo) => todo.done).length;
 
   return (
     <div className="container">
@@ -38,16 +40,12 @@ const Home = () => {
         </div>
         <div className="circle">
           <p className="circle-text">
-            {completedCount}/{todos.length}
+            {completedCount}/{todo.length}
           </p>
         </div>
       </div>
-      <TodoForm addTodo={handleAddTodo} />
-      <TodoList
-        todo={todos}
-        onCheckboxChange={handleCheckboxChange}
-        handleDelete={deleteTodo}
-      />
+      <TodoForm />
+      <TodoList />
     </div>
   );
 };
