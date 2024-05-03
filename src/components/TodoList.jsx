@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ todo, onCheckboxChange }) => {
+const TodoList = ({ todo, onCheckboxChange, handleDelete }) => {
   return (
     <div className="list">
       {todo.map((todo) => (
@@ -8,6 +8,7 @@ const TodoList = ({ todo, onCheckboxChange }) => {
           key={todo.id}
           todo={todo}
           onCheckboxChange={() => onCheckboxChange(todo.id)}
+          handleDelete={handleDelete}
         />
       ))}
     </div>
