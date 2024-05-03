@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TrashIcon from "./TrashIcon";
 
-const TodoItem = ({ todo, onCheckboxChange, handleDelete }) => {
+const TodoItem = ({ todo, onCheckboxChange }) => {
   //const [task, setTask] = useState("Study for exam");
 
   return (
@@ -15,7 +15,7 @@ const TodoItem = ({ todo, onCheckboxChange, handleDelete }) => {
         <span className={`checkmark ${todo.done ? "checked" : ""}`}></span>
         <span className={`task-text ${todo.done ? "completed" : ""}`}>
           <div className="title">{todo.task}</div>
-          <TrashIcon onClick={() => handleDelete(todo.id)} className="trash" />
+          <TrashIcon className="trash" />
         </span>
       </label>
     </div>
