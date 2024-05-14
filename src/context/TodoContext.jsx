@@ -20,8 +20,16 @@ const TodoProvider = ({ children }) => {
     fetchTodos();
   }, []);
 
+  const addTodo = async (newTodo) => {
+    try {
+      await axios.post(`${import.meta.env.VITE_API_URL}/todo`, newTodo);
+    } catch (err) {
+      console.log("Error: " + err);
+    }
+  };
+
   return (
-    <TodoContext.Provider value={{ todo, setTodo }}>
+    <TodoContext.Provider value={{ todo, setTodo, addTodo }}>
       {children}
     </TodoContext.Provider>
   );

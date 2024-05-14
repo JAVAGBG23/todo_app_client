@@ -20,15 +20,16 @@ const TodoList = () => {
   };
 
   return (
-    <div className="list">
+    <>
       {todo.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          onCheckboxChange={() => handleCheckboxChange(todo.id)}
-        />
+        <div key={todo.id} className="list">
+          <TodoItem
+            todo={todo}
+            onCheckboxChange={() => handleCheckboxChange(todo.id)}
+          />
+        </div>
       ))}
-    </div>
+    </>
   );
 };
 
